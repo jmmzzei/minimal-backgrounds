@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../src/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap" rel="stylesheet">
     <title>Bg Creator</title>
 </head>
@@ -23,9 +22,8 @@
             <h2>START CREATING!</h2>
 
             <div class="buttons">
-                <button class="primary" onmouseover="hidePrimary(this)" onmouseout="showPrimary(this)">SOLID</button>
-                <button onmouseover="hidePrimary(this)" onmouseout="showPrimary(this)"
-                    onclick="hideAll(this)">GRADIENT</button>
+                <button id="solid" class="primary" >SOLID</button>
+                <button id="gradient">GRADIENT</button>
             </div>
 
             <div class="coment">
@@ -36,9 +34,6 @@
             </div>
         </div>
 
-
-
-
         <!-- <div class="cont" style="z-index: 1;">
             <div class="solid">
                 <button onclick="select(this)">select</button>
@@ -47,7 +42,6 @@
                 <button onclick="select(this)">select</button>
             </div>
         </div> -->
-
 
         <div class="nav-bottom">
             <div class="container">
@@ -63,21 +57,14 @@
                         <div class="colors-panel" style="display: none;">
 
                             <div id="gradients-options">
-                                <input type="color" id="0" oninput="gradient.add(this)" onclick="gradient.select(this)"
-                                onfocus="gradient.setCanvas(this)"
-                                
-                                
-                                value="#ffffff">
+                                <input type="color" id="0" value="#ffffff">
                             <!-- onclick=Gradient.selected(this) -->
 
-                                <input type="color" id="1" oninput="gradient.add(this)"
-                                onclick="gradient.select(this)" 
-                                onfocus="gradient.setCanvas(this)"
-                                value="#000000">
-                            </div>
-                            <button id="add-gradient" onclick="AddGradientSelector(this, '#fff')">+</button>    
+                                <input type="color" id="1" value="#000000">
+                            </div>  
+                            <button id="add-gradient">+</button>    
                             <!-- onclick= Gradient.Add(this, '#fff') -->
-                            <button id="remove-gradient" onclick="gradient.remove()">-</button>
+                            <button id="remove-gradient">-</button>
                             <!-- onclick= Gradient.Remove(this) -->
                             <!-- this se transforma en e => e.previousSibling.remove (elimina el último elemento) -->
                             <!-- o, toma el e que retornó Gradient.selected(this) -->
@@ -87,10 +74,9 @@
                             </div>
                         </div>
 
-                    <p onclick="toggleConfig(this)">COLORS</p>
+                    <p id="color-toggle">COLORS</p>
 
                 </div>
-
 
                 <div class="flex">
                     <div class="config-panel" style="display: none;">
@@ -113,7 +99,7 @@
                         </div>
                     </div>
 
-                    <p onclick="toggleConfig(this)">CONFIGURATION</p>
+                    <p id="config-toggle">CONFIGURATION</p>
                 </div>
 
 
@@ -125,7 +111,6 @@
             <h1>CREATE <span>MINIMAL</span> BACKGROUNDS</h1>
         </nav>
     </div>
-
 </body>
 
 </html>

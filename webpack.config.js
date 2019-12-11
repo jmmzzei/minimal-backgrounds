@@ -10,12 +10,12 @@ module.exports = {
     entry: path.resolve(__dirname,'./src/js/index.js'),
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, './dist')
     },
-    optimization: {
-      minimize: true,
-      minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
-    },
+    // optimization: {
+    //   minimize: true,
+    //   minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    // },
     module : {
         rules: [
           {
@@ -34,7 +34,7 @@ module.exports = {
         new HtmlWebpackPlugin({
           filename:'index.html',
           template: './src/index.html',
-          hash: true,
+          hash: false,
             minify: {
               //all to true
               collapseWhitespace: false,

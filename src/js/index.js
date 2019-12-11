@@ -6,92 +6,23 @@ const g2Picker = document.getElementById('g2Picker');
 
 const button = document.getElementById('btn-download');
 const gradientOptions = document.getElementById('gradients-options')
-console.log('adsa')
 
+const solidBtn = document.getElementById('solid')
+const gradientBtn = document.getElementById('gradient')
+const configToggle = document.getElementById('config-toggle')
+const colorToggle = document.getElementById('color-toggle')
 
+const inputOne = document.getElementById('0')
+const inputTwo = document.getElementById('1')
 
-function hidePrimary(e) {
-    animationSetting(e, e.innerHTML, 0)
-}
-function showPrimary(e) {
-    animationSetting(e, e.innerHTML, 1)
-}
-
-function animationSetting(e, str, num) {
-    let modificator = ''
-    if (str == 'SOLID') {
-        modificator = 'nextSibling'
-    } else {
-        modificator = 'previousSibling'
-    }
-
-    if (num == 0) {
-        e[modificator][modificator].style.color = '#f1f1f1'
-        e[modificator][modificator].style.width = '300px'
-        e[modificator][modificator].style.transition = 'all 1s'
-    } else {
-        if (modificator == 'nextSibling') {
-            e[modificator][modificator].innerHTML = 'GRADIENT'
-        } else {
-            e[modificator][modificator].innerHTML = 'SOLID'
-        }
-        e[modificator][modificator].style.width = '400px'
-    }
-}
-function hideAll(e) {
-    const h1 = e.parentNode.parentNode.childNodes[1]
-
-    h1.style.fontSize = '18px'
-    h1.style.wordSpacing = '2px'
-    h1.style.marginTop = '12px'
-    h1.style.position = 'fixed'
-    h1.style.transition = 'all 1s'
-
-    for (let i = 0; i < e.parentNode.parentNode.childNodes.length; i++) {
-        if (e.parentNode.parentNode.childNodes[i].nodeName != '#text') {
-            if (e.parentNode.parentNode.childNodes[i].nodeName == 'H1') {
-                console.log(e.parentNode.parentNode.childNodes[i].nodeName);
-            }else {
-                e.parentNode.parentNode.childNodes[i].style.opacity = '0'  
-                //e.parentNode.parentNode.childNodes[i].style.transition = 'all 1s'  
-            }
-        }                       
-    }
-
-
-    const timeout = setTimeout(() => {
-
-
-            for (let i = 0; i < e.parentNode.parentNode.childNodes.length; i++) {
-                if (e.parentNode.parentNode.childNodes[i].nodeName != '#text') {
-            if (e.parentNode.parentNode.childNodes[i].nodeName == 'H1') {
-                console.log(e.parentNode.parentNode.childNodes[i].nodeName);
-            }else {
-                e.parentNode.parentNode.childNodes[i].style.opacity = '0'
-
-            }
-        }  
-            }
-
-            e.parentNode.parentNode.style.opacity = '0'  
-            e.parentNode.parentNode.style.transition = 'all 1s' 
-            setTimeout(() => {
-              e.parentNode.parentNode.style.display = 'none'  
-            }, 500);
-    }, 800);
-}
-
-
-
+const addGradient = document.getElementById('add-gradient')
+const removeGradient = document.getElementById('remove-gradient')
 
 import Gradient from "./gradient";
 
+let arr = ['#fff', '#000']
 
-const gradient = new Gradient()
-
-import "./helpers"
-import "./listeners";
-import '../css/style.scss'
+const gradient = new Gradient(canvas, arr)
 
 let width = 1920,
     height = 1080,
@@ -99,37 +30,72 @@ let width = 1920,
 
 let extension = 'png'
 
-let arr = ['#fff', '#000']
+import Listeners from "./listeners";
+
+import { animationSetting, hideAll, toggleConfig } from "./helpers";
 
 
-function AddGradient(e){
-    arr[e.id] = e.value
-    const ctx = canvas.getContext('2d')
+import '../css/style.scss'
+document.addEventListener('DOMContentLoaded', () => {
+    solidBtn.addEventListener('mouseover', ()=>{animationSetting(solidBtn, 0) }, false)
+    solidBtn.addEventListener('mouseout', ()=>{ animationSetting(solidBtn, 1)}, false)
+    gradientBtn.addEventListener('mouseover',()=>{ animationSetting(gradientBtn, 0)}, false)
+    gradientBtn.addEventListener('mouseout',()=>{ animationSetting(gradientBtn, 1)}, false)
+    gradientBtn.addEventListener('click',() =>{ hideAll(gradientBtn)}, false)
 
-    var grd = ctx.createLinearGradient(0, 0, 200, 0);
+    addGradient.addEventListener('click', ()=> {
+        AddGradientInput(addGradient, '#8924a4')
+    })
+
+    removeGradient.addEventListener('click', ()=>{
+        gradient.remove(removeGradient)
+    })
+
+    colorToggle.addEventListener('click', () => {
+        toggleConfig(colorToggle)
+    })
+
+    configToggle.addEventListener('click', ()=>{
+        toggleConfig(configToggle)
+    })
+
+    inputOne.addEventListener('click', () => {
+        gradient.select(inputOne)
+    })
+
+    inputOne.addEventListener('input', ()=>{
+        gradient.add(inputOne)
+    })
     
-    for (let i = 0; i < arr.length; i++) {
-        let output = mapper(arr.length - 1, i)   
-        if (e.id == i) {
-            arr[i] = e.value
-            // console.log(arr[i] + ' ' + e.value + ' ' + i );
-        }
-        grd.addColorStop(output, arr[i]);
-    }
+    inputOne.addEventListener('focus', ()=>{
+        gradient.setCanvas(inputOne)
+    })
 
-    ctx.fillStyle = grd;
-    ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
-}
+    inputTwo.addEventListener('click', () => {
+        gradient.select(inputTwo)
+    })
 
-function AddGradientSelector(e, color){
+    inputTwo.addEventListener('input', ()=> {
+        gradient.add(inputTwo)
+    })
+
+    inputTwo.addEventListener('focus', ()=>{
+        gradient.setCanvas(inputTwo)
+    })
+})
+
+function AddGradientInput(e, color) {
     const input = document.createElement('input');
     input.type = 'color';
     input.id = arr.length;
     input.setAttribute('value', color)
-    input.setAttribute('oninput',  `AddGradient(this)`)
+    // input.setAttribute('oninput', `AddGradient(this)`)
+    input.addEventListener('input', ()=>{
+        gradient.add(input)
+    })
     gradientOptions.append(input);
     arr.push(color);
-    console.log(arr[0] + arr[1] + arr[2]);
+    console.log(arr);
 }
 
 function select(e) {
