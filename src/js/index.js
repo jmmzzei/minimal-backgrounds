@@ -1,10 +1,11 @@
+import { animationButtons, hideAll, toggleConfig } from "./helpers";
+import Gradient from "./gradient";
+
 const cPicker = document.getElementById('colorPicker')
 const canvas = document.getElementById('myCanvas')
-const bg = document.getElementsByClassName('bg')[0]
 const g1Picker = document.getElementById('g1Picker')
 const g2Picker = document.getElementById('g2Picker');
 
-const button = document.getElementById('btn-download');
 const gradientOptions = document.getElementById('gradients-options')
 
 const solidBtn = document.getElementById('solid')
@@ -18,11 +19,10 @@ const inputTwo = document.getElementById('1')
 const addGradient = document.getElementById('add-gradient')
 const removeGradient = document.getElementById('remove-gradient')
 
-import Gradient from "./gradient";
 
-let arr = ['#fff', '#000']
-
+let arr = ['#ffffff', '#000000']
 const gradient = new Gradient(canvas, arr)
+
 
 let width = 1920,
     height = 1080,
@@ -32,19 +32,17 @@ let extension = 'png'
 
 import Listeners from "./listeners";
 
-import { animationSetting, hideAll, toggleConfig } from "./helpers";
-
-
 import '../css/style.scss'
 document.addEventListener('DOMContentLoaded', () => {
-    solidBtn.addEventListener('mouseover', ()=>{animationSetting(solidBtn, 0) }, false)
-    solidBtn.addEventListener('mouseout', ()=>{ animationSetting(solidBtn, 1)}, false)
-    gradientBtn.addEventListener('mouseover',()=>{ animationSetting(gradientBtn, 0)}, false)
-    gradientBtn.addEventListener('mouseout',()=>{ animationSetting(gradientBtn, 1)}, false)
+    solidBtn.addEventListener('mouseover', ()=>{animationButtons(solidBtn, 0) }, false)
+    solidBtn.addEventListener('mouseout', ()=>{ animationButtons(solidBtn, 1)}, false)
+    gradientBtn.addEventListener('mouseover',()=>{ animationButtons(gradientBtn, 0)}, false)
+    gradientBtn.addEventListener('mouseout',()=>{ animationButtons(gradientBtn, 1)}, false)
     gradientBtn.addEventListener('click',() =>{ hideAll(gradientBtn)}, false)
 
     addGradient.addEventListener('click', ()=> {
-        AddGradientInput(addGradient, '#8924a4')
+        let input = gradient.addInput('#8924a4')
+        gradientOptions.append(input)
     })
 
     removeGradient.addEventListener('click', ()=>{
@@ -84,20 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 })
 
-function AddGradientInput(e, color) {
-    const input = document.createElement('input');
-    input.type = 'color';
-    input.id = arr.length;
-    input.setAttribute('value', color)
-    // input.setAttribute('oninput', `AddGradient(this)`)
-    input.addEventListener('input', ()=>{
-        gradient.add(input)
-    })
-    gradientOptions.append(input);
-    arr.push(color);
-    console.log(arr);
-}
-
 function select(e) {
     //e.parentNode.className == 'gradient' ? bg.style.background = `linear-gradient(${g1Picker.value}, ${g2Picker.value})` : bg.style.background = cPicker.value
     if (e.parentNode.className == 'gradient') {
@@ -122,21 +106,3 @@ function select(e) {
     }
     console.log(e);
 }
-
-var percent = ''
-/*
-const s = e => {
-    percent = e.innerHTML / 100
-    const ctx = canvas.getContext('2d')
-    var grd = ctx.createLinearGradient(0, 0, 200, 0);
-    grd.addColorStop(0, g1Picker.value);
-    grd.addColorStop(percent, 'cyan');
-    grd.addColorStop(1, g2Picker.value);
-
-    // Fill with gradient
-    ctx.fillStyle = grd;
-    ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
-}
-*/
-
-

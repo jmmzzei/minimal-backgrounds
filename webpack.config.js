@@ -5,6 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');  // used to minify Javascript in a customized way
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin'); 
+
 
 module.exports = {
     entry: path.resolve(__dirname,'./src/js/index.js'),
@@ -31,7 +33,8 @@ module.exports = {
         ]
       },
     plugins:[
-        new HtmlWebpackPlugin({
+      new CleanWebpackPlugin(),
+      new HtmlWebpackPlugin({
           filename:'index.html',
           template: './src/index.html',
           hash: false,
@@ -54,6 +57,6 @@ module.exports = {
                   autoprefixer()
               ]
           }
-      })
+      }),
     ]
 }

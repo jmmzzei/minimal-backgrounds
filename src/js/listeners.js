@@ -9,7 +9,6 @@ const g1Picker = document.getElementById('g1Picker')
 const g2Picker = document.getElementById('g2Picker');
 
 const button = document.getElementById('btn-download');
-const gradientOptions = document.getElementById('gradients-options')
 
 export default function listeners() {
 

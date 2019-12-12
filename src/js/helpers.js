@@ -5,6 +5,16 @@ export function toggleConfig(e) {
     //navStyle.background = navStyle.background == '#000000' ? '#00000000' : "#000000"
 }
 
+export function toggleType(e) {
+
+    e.style.transform = 'translateY(80px)'
+    e.style.transition = 'all 1s'
+    for (let index = 0; index < 800; index++) {
+        console.log(index);
+    }
+    e.innerHTML = e.innerHTML == 'GRADIENT' ? 'SOLID' : 'GRADIENT'
+}
+
 export function hideAll(e) {
     const h1 = e.parentNode.parentNode.childNodes[1]
 
@@ -43,15 +53,7 @@ export function hideAll(e) {
     }, 800);
 }
 
-export function toggleType(e) {
 
-    e.style.transform = 'translateY(80px)'
-    e.style.transition = 'all 1s'
-    for (let index = 0; index < 800; index++) {
-        console.log(index);
-    }
-    e.innerHTML = e.innerHTML == 'GRADIENT' ? 'SOLID' : 'GRADIENT'
-}
 
 export function mapper(arrlength, input) {
     let output = 0 + ((1 - 0) / (arrlength - 0)) * (input - 0)
@@ -59,7 +61,7 @@ export function mapper(arrlength, input) {
     return output
 }
 
-export function animationSetting(e, num) {
+export function animationButtons(e, num) {
     let modificator = ''
     if (e.innerHTML == 'SOLID') {
         modificator = 'nextSibling'
