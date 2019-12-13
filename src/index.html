@@ -12,12 +12,12 @@
 <body>
     <div class="bg">
         <canvas id="myCanvas"
-            style=" display: block; position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; background: linear-gradient(90deg, #fff, #000000);">
+            style=" display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, #fff, #000000);">
         </canvas>
 
         <div class="presentation" style="display: none;">
             <h1>CREATE <span>MINIMAL</span> BACKGROUNDS</h1>
-            <h2>FOR YOUR COMPUTER, TABLET OR SMARTPHONE</h2>
+            <h2>FOR YOUR CaOMPUTER, TABLET OR SMARTPHONE</h2>
 
             <h2>START CREATING!</h2>
 
@@ -34,15 +34,6 @@
             </div>
         </div>
 
-        <!-- <div class="cont" style="z-index: 1;">
-            <div class="solid">
-                <button onclick="select(this)">select</button>
-            </div>
-            <div class="gradient">
-                <button onclick="select(this)">select</button>
-            </div>
-        </div> -->
-
         <div class="nav-bottom">
             <div class="container">
 
@@ -56,21 +47,30 @@
                 <div class="flex">
                         <div class="colors-panel" style="display: none;">
 
-                            <div id="gradients-options">
+                            <div id="gradients-options" style="display: grid;">
                                 <input type="color" id="0" value="#ffffff">
                             <!-- onclick=Gradient.selected(this) -->
 
                                 <input type="color" id="1" value="#000000">
-                            </div>  
-                            <button id="add-gradient">+</button>    
-                            <!-- onclick= Gradient.Add(this, '#fff') -->
-                            <button id="remove-gradient">-</button>
-                            <!-- onclick= Gradient.Remove(this) -->
-                            <!-- this se transforma en e => e.previousSibling.remove (elimina el último elemento) -->
-                            <!-- o, toma el e que retornó Gradient.selected(this) -->
+                            </div>
+                            <!-- <div id="gradient-settings"> -->
+                                <button id="add-gradient">+</button>
+                                <!-- onclick= Gradient.Add(this, '#fff') -->
+                                <button id="remove-gradient">-</button>
+                                <!-- onclick= Gradient.Remove(this) -->
+                                <!-- this se transforma en e => e.previousSibling.remove (elimina el último elemento) -->
+                                <!-- o, toma el e que retornó Gradient.selected(this) -->
+                                <br><br>
     
+                                <input type="number" name="x0" id="x0" placeholder="x0">
+                                <input type="number" name="y0" id="y0" placeholder="y0">
+                                <input type="number" name="x1" id="x1" placeholder="x1" value="1920">
+                                <input type="number" name="y1" id="y1" placeholder="y1" value="1080">
+    
+                            <!-- </div> -->
+
                             <div id="solid-options" style="display: none;">
-                                <input type="color" name="color" id="colorPicker" value="#ff7b2f">
+                                <input type="color" name="color" id="colorPicker" value="#f1f1f1">
                             </div>
                         </div>
 
@@ -91,9 +91,9 @@
     
                             <label for="img-type">Extension</label>
                             <form action="" name="img-type">
-                                <input class="ext" type="radio" name="img-extension" value="png" checked> .png<br>
-                                <input class="ext" type="radio" name="img-extension" value="jpeg"> .jpeg<br>
-                                <input class="ext" type="radio" name="img-extension" value="webp"> .webp
+                                <input class="extension" type="radio" name="img-extension" value="png" checked> .png<br>
+                                <input class="extension" type="radio" name="img-extension" value="jpeg"> .jpeg<br>
+                                <input class="extension" type="radio" name="img-extension" value="webp"> .webp
                             </form>
                         </div>
                     </div>
