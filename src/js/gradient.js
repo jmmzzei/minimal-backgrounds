@@ -8,7 +8,16 @@ export default class Gradient {
         this.ctx = this.canvas.getContext('2d')
         this.lienzos = []
         this.arr = ['#ffffff', '#000000']
-   
+    }
+
+    paint(){
+        let grd = this.ctx.createLinearGradient(0, 0, this.canvas.width, 0)
+        for (let i = 0; i < this.arr.length; i++) {
+            let output = mapper(this.arr.length - 1, i)
+            grd.addColorStop(output, this.arr[i])
+        }
+        this.ctx.fillStyle = grd
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height)
     }
 
     select(e) {
@@ -34,13 +43,13 @@ export default class Gradient {
             let output = mapper(this.arr.length - 1, i)
             if (e.id == i) {
                 this.arr[i] = e.value
-                // console.log(arr[i] + ' ' + e.value + ' ' + i );
             }
             grd.addColorStop(output, this.arr[i]);
         }
 
         this.ctx.fillStyle = grd;
-        this.ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+        // this.ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height)
 
     }
 
@@ -51,16 +60,7 @@ export default class Gradient {
         input.id = this.arr.length;
         input.setAttribute('value', color)
         this.arr.push(color);
-
-        var grd = this.ctx.createLinearGradient(0, 0, this.canvas.width, 0);
-
-        for (let i = 0; i < this.arr.length; i++) {
-            let output = mapper(this.arr.length - 1, i)
-            grd.addColorStop(output, this.arr[i])
-        }
-
-        this.ctx.fillStyle = grd
-        this.ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
+        this.paint()
         return input
     }
 
@@ -78,37 +78,11 @@ export default class Gradient {
             let arrayNodes = Array.from(document.getElementById('gradients-options').childNodes)
             arrayNodes.reverse().find(e => e.id).remove()
             this.arr.pop()
-
-            let grd = this.ctx.createLinearGradient(0, 0, this.canvas.width, 0)
-            for (let i = 0; i < this.arr.length; i++) {
-                let output = mapper(this.arr.length - 1, i)
-                grd.addColorStop(output, this.arr[i])
-            }
-
-            this.ctx.fillStyle = grd
-            this.ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
+            this.paint()
         } else {
             return 'no se puede eliminar nada mas'
         }
         // }
-    }
-
-    getCanvas() {
-        this.arr[e.id] = e.value
-
-        var grd = this.ctx.createLinearGradient(0, 0, this.canvas.width, 0);
-
-        for (let i = 0; i < this.arr.length; i++) {
-            let output = mapper(this.arr.length - 1, i)
-            if (e.id == i) {
-                this.arr[i] = e.value
-                // console.log(arr[i] + ' ' + e.value + ' ' + i );
-            }
-            grd.addColorStop(output, this.arr[i]);
-        }
-
-        this.ctx.fillStyle = grd;
-        this.ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
     }
 
 }
