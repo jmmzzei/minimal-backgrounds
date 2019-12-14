@@ -1,0 +1,79 @@
+@import "./download-svg";
+
+.flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    color: $black;
+    border-radius: 14px;
+    background: $light-gradient;
+
+
+    a,p{
+        cursor: pointer;
+        padding: 20px 30px;
+        margin: 0;
+        background: $white;
+        border-radius: 14px 14px;
+        font-weight: 800;
+        box-shadow: 0 0 0.6em #afafaf90;
+        transition: 0.3s;
+        color: $grey;
+    }
+
+    a:hover{
+        // background: $primary;
+        box-shadow: 10px 10px 1em #80808059;
+        transition: 0.5s;
+    }
+
+    a:active{
+        background: #000;
+    }
+
+    a:hover > svg path {
+        // fill: $white;
+        opacity: 0.4;
+        transition: 0.5s;
+        
+    }
+
+    p:hover{
+        // background: $black;
+        color: $light-grey;
+        box-shadow: 10px 10px 1em #80808059;
+        transition: 0.5s;
+    }
+
+
+    select{
+        font-weight: 800;
+        border: none;
+        font-size: 22px;
+        background: $white;
+        text-align: center;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        outline: none;
+        letter-spacing: 4px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: '';
+        border-radius: 14px;
+        box-shadow: 10px 10px 1em #80808059;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+
+    select .opt:checked{
+        box-shadow: 0 0 10px 100px $primary inset !important;
+    }
+
+}

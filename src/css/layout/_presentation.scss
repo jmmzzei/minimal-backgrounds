@@ -1,0 +1,42 @@
+@import "../components/buttons";
+@import "../components/comment";
+@import "../components/diagonal";
+
+.presentation{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    background: $black;
+
+    h1{
+        font-size: 80px;
+        color: $white;
+        letter-spacing: -2px;
+        word-spacing: -10px;
+        margin: 0;
+        margin-top: 80px;
+        padding-left: 70px;
+
+        span{
+            color: $primary;
+        }        
+    }
+
+    h1:nth-child(2){
+        color: $light-grey;
+    }    
+
+    h2 {
+        font-size: 40px;
+        color: $light-grey;
+        padding-left: 70px;
+        margin: 0;
+        margin-top: 8px;
+        letter-spacing: 5px;
+        margin-bottom: 20vh;
+    }
+        
+}

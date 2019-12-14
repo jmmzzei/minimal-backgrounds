@@ -7,7 +7,7 @@ export default class Gradient {
         this.selected = null
         this.ctx = this.canvas.getContext('2d')
         this.lienzos = []
-        this.arr = ['#ffffff', '#000000']
+        this.arr = ['#ffffff', '#ffffff']
     }
 
     paint(){

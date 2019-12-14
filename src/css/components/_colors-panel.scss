@@ -1,0 +1,70 @@
+.colors-panel{
+    margin: 0;
+    padding: 0;
+
+    div{
+        display: grid;
+        grid-template-areas:
+        "input input"
+        "input input"
+        ;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 0;
+        padding: 0;
+
+        input{
+            margin: 10px 5px;
+            border: none;
+            outline-color: $primary;
+            background: $black;
+            padding: 0;
+            grid-area: 'input';
+            align-self: center;
+            justify-self: center;
+            background: rgba(0,0,0,0);
+        }            
+    }
+
+    button {
+        width: 40px;
+        font-size: 22px;
+        outline-color: $primary;
+        background: $white;
+        color: $dark-grey;
+        border-radius: 4px;
+        border: none;
+        margin: 5px 5px 15px 5px;
+    }
+
+    button:hover {
+        transition: 0.6s;
+        color: $white;
+    } 
+    
+    #solid-options{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+
+    }
+
+    #remove-gradient{
+        float: left;
+    }
+    
+    #add-gradient{
+        float: right;
+    }
+    
+    #add-gradient:hover{
+        background: $primary;
+    }
+    
+    #remove-gradient:hover{
+        background: $danger;
+    }
+    
+
+}

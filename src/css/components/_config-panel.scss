@@ -1,0 +1,50 @@
+.config-panel{
+    margin: 0;
+    padding: 0;
+    margin-top: 14px;
+    font-size: 14px;
+    letter-spacing: 0px;
+
+    .config-grid{
+        display: block;
+        padding: 0;
+        margin: 0 0 20px 0;
+    
+        input {
+            align-self: center;
+            display: block;
+            font-size: 14px;
+            margin: 4px 0;
+            padding: 8px;
+            background: $dark-grey;
+            border: none;
+            outline-color: $primary;
+            color: $white;
+            border-radius: 6px;
+        }
+    
+        label {
+            align-self: center;
+            margin-top: 10px;
+            display: block;
+            color: $grey;
+
+        }
+
+        form{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+
+        form input{
+            display: inline;
+            margin: 5px 5px;
+            text-align:left;
+
+        }
+
+    }
+        
+}

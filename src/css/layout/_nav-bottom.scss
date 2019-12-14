@@ -1,0 +1,15 @@
+@import "../components/container";
+@import "../components/flex";
+@import "../components/colors-panel";
+@import "../components/config-panel";
+
+
+.nav-bottom{
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    overflow: auto;
+    height: auto;
+    padding: 20px 0;
+}

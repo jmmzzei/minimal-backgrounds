@@ -21,9 +21,9 @@ const removeGradient = document.getElementById('remove-gradient')
 
 const downloadBtn = document.getElementById('btn-download')
 
-const imgWidth = document.getElementById('img-width')
-const imgHeight = document.getElementById('img-height')
-const imgQuality = document.getElementById('img-quality')
+// const imgWidth = document.getElementById('img-width')
+// const imgHeight = document.getElementById('img-height')
+// const imgQuality = document.getElementById('img-quality')
 const cPicker = document.getElementById('colorPicker')
 
 const selector = document.getElementById('type-select')

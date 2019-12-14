@@ -1,0 +1,23 @@
+.container{
+    letter-spacing: 4px;
+    font-weight: 500;
+    margin: 0 auto;
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    font-size: 22px;
+    height: 100%;
+
+    a{
+        color: $primary;
+        background: $white;
+        cursor: pointer;
+        text-decoration: none;
+        margin: 20px;
+        padding: 0 20px;
+        position: relative;
+    }
+    
+}
