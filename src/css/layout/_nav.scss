@@ -1,22 +1,26 @@
 nav {
-    background: $black;
+    background: $white;
     height: 40px;
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 1;
+    box-shadow: 0 0 0.4em $shadow;
+
 
     h1 {
         font-weight: 800;
         position: absolute;
         top: 12px;
         left: 70px;
-        font-size: 18px;
+        font-size: 1.8rem;
         word-spacing: 2px;
         margin-top: 12px;
-        color: $white;
+        color: $black;
         letter-spacing: -2px;
         margin: 0;
+        
         span {
             color: $primary;
         }        

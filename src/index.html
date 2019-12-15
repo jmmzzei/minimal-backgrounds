@@ -10,113 +10,136 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <canvas id="myCanvas">
-        </canvas>
+    <nav id="nav">
+        <h1><span>MINIMAL</span> BACKGROUNDS</h1>
+    </nav>
 
-        <div class="presentation" style="display:none">
-            <h1>CREATE <span>MINIMAL</span> BACKGROUNDS</h1>
-            <h2>FOR YOUR COMPUTER, TABLET OR SMARTPHONE</h2>
+    <canvas id="myCanvas">
+    </canvas>
 
-            <h2>START CREATING!</h2>
+    <div class="nav-bottom">
+        <div class="container">
+            <div class="flex">
 
-            <div class="buttons">
-                <button id="solid" class="primary">SOLID</button>
-                <button id="gradient">GRADIENT</button>
-            </div>
-
-            <div class="coment">
-                <p>(for free and without login required)</p>
-            </div>
-
-            <div class="diagonal">
-            </div>
-        </div>
-
-        <div class="nav-bottom">
-            <div class="container">
-
-                <div class="flex">
-                    <select name="type" id="type-select">
-                        <option value="GRADIENT" class="opt">GRADIENT</option>
-                        <option value="SOLID" class="opt">SOLID</option>
-                    </select>
+                <div id="select-mode">
+                    <div id="gradiente" style="display: block; cursor: pointer;">GRADIENT</div>
+                    <div id="solido" style="display: none;">SOLID</div>
                 </div>
 
-                <div class="flex">
-                    <div class="colors-panel" style="display: none;">
+            </div>
 
-                        <div id="gradients-options" style="display: grid;">
-                            <input type="color" id="0" value="#ffffff">
-                            <input type="color" id="1" value="#000000">
-                        </div>
-                        <button id="add-gradient">+</button>
-                        <button id="remove-gradient">-</button>
+            <div class="flex">
+                <div class="colors-panel" style="display: none;">
 
-                        <div id="solid-options" style="display: none;">
-                            <input type="color" name="color" id="colorPicker" value="#f1f1f1">
-                        </div>
+                    <div id="gradients-options" style="display: grid;">
+                        <input type="color" id="inputOne" value="#ffffff">
+                        <input type="color" id="inputTwo" value="#ffffff">
                     </div>
+                    <button id="add-gradient">+</button>
+                    <button id="remove-gradient">-</button>
 
-                    <p id="color-toggle">COLORS</p>
-                </div>
-
-                <div class="flex">
-                    <div class="config-panel" style="display: none;">
-                        <div class="config-grid">
-                            <label for="name">Name</label>
-                            <input type="text" name="name" id="img-name" placeholder="image-name">
-                            <label for="width">Width</label>
-                            <input type="number" name="width" id="img-width" value="1920">
-                            <label for="height">Height</label>
-                            <input type="number" name="height" id="img-height" value="1080">
-                            <label for="quality">Quality</label>
-                            <input type="number" name="quality" id="img-quality" value="0.92" max="1" min="0.1"
-                                step="0.05">
-
-                            <label for="img-type">Extension</label>
-                            <form action="" name="img-type">
-                                <input class="extension" type="radio" name="img-extension" value="png" checked> .png<br>
-                                <input class="extension" type="radio" name="img-extension" value="jpeg"> .jpeg<br>
-                                <input class="extension" type="radio" name="img-extension" value="webp"> .webp
-                            </form>
-                        </div>
+                    <div id="solid-options" style="display: none;">
+                        <input type="color" name="color" id="colorPicker" value="#f1f1f1">
                     </div>
-
-                    <p id="config-toggle">CONFIGURATION</p>
                 </div>
 
-                <div class="flex">
-                    <a href="#" class="button" id="btn-download" download="minimalBackground">
+                <p id="color-toggle">COLORS</p>
+            </div>
 
-                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 490.4 490.4"
-                            style="enable-background:new 0 0 490.4 490.4;" xml:space="preserve" width="40px"
-                            >
+            <div class="flex">
+                <div class="config-panel" style="display: none;">
+                    <div class="config-grid">
+                        <label for="name">Name:</label>
+                        <input type="text" name="name" id="img-name" placeholder="image-name">
+                        <label for="width">Width:</label>
+                        <input type="number" name="width" id="img-width" value="1920">
+                        <label for="height">Height:</label>
+                        <input type="number" name="height" id="img-height" value="1080">
+                        <label for="quality">Quality:</label>
+                        <input type="number" name="quality" id="img-quality" value="0.92" max="1" min="0.1" step="0.05">
+
+                        <label for="img-type">Extension:</label>
+                        <form action="" name="img-type">
+                            <input class="extension" type="radio" name="img-extension" value="png" checked> .png<br>
+                            <input class="extension" type="radio" name="img-extension" value="jpeg"> .jpeg<br>
+                            <input class="extension" type="radio" name="img-extension" value="webp"> .webp
+                        </form>
+                    </div>
+                </div>
+
+                <p id="config-toggle">CONFIGURATION</p>
+            </div>
+
+            <div class="flex">
+                <a href="#" class="button" id="btn-download" download="minimalBackground">
+
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40"
+                        style="enable-background:new 0 0 40 40;" xml:space="preserve">
+                        <g id="Capa_1">
+                            <circle style="fill:none;stroke-miterlimit:10;" cx="20" cy="20" r="19.401" />
+                        </g>
+                        <g id="Capa_2">
                             <g>
                                 <g>
-                                    <path 
-                                        d="M490.4,245.2C490.4,110,380.4,0,245.2,0S0,110,0,245.2s110,245.2,245.2,245.2S490.4,380.4,490.4,245.2z M24.5,245.2
-                                   c0-121.7,99-220.7,220.7-220.7s220.7,99,220.7,220.7s-99,220.7-220.7,220.7S24.5,366.9,24.5,245.2z" />
-                                    <path d="M253.9,360.4l68.9-68.9c4.8-4.8,4.8-12.5,0-17.3s-12.5-4.8-17.3,0l-48,48V138.7c0-6.8-5.5-12.3-12.3-12.3
-                                   s-12.3,5.5-12.3,12.3v183.4l-48-48c-4.8-4.8-12.5-4.8-17.3,0s-4.8,12.5,0,17.3l68.9,68.9c2.4,2.4,5.5,3.6,8.7,3.6
-                                   S251.5,362.8,253.9,360.4z" />
+                                    <path d="M19.417,5.958c0,6.667,0,13.333,0,19.999c0,0.807,1.25,0.807,1.25,0c0-6.666,0-13.333,0-19.999
+				C20.667,5.152,19.417,5.152,19.417,5.958L19.417,5.958z" />
                                 </g>
                             </g>
-                        </svg>
-                    </a>
-                </div>
+                            <g>
+                                <g>
+                                    <path d="M13.527,20.664c2.024,2.023,4.049,4.049,6.073,6.074c0.57,0.57,1.455-0.314,0.884-0.885
+				c-2.024-2.025-4.049-4.049-6.073-6.074C13.84,19.209,12.957,20.093,13.527,20.664L13.527,20.664z" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <path d="M20.484,26.738c2.025-2.025,4.049-4.051,6.074-6.074c0.57-0.571-0.313-1.455-0.885-0.884
+				c-2.024,2.025-4.049,4.048-6.073,6.074C19.03,26.424,19.914,27.309,20.484,26.738L20.484,26.738z" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <path d="M11.141,31.375c5.906,0,11.813,0,17.719,0c0.806,0,0.806-1.25,0-1.25c-5.906,0-11.813,0-17.719,0
+				C10.334,30.125,10.334,31.375,11.141,31.375L11.141,31.375z" />
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="menu">
+
+                <svg id="menu" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px"
+                    viewBox="0 0 40 40" style="enable-background:new 0 0 40 40;" xml:space="preserve">
+                    <g>
+                        <g>
+                            <path d="M3.2,10.833c11.433,0,22.866,0,34.3,0c2.418,0,2.418-3.75,0-3.75c-11.434,0-22.867,0-34.3,0
+			C0.782,7.083,0.782,10.833,3.2,10.833L3.2,10.833z" />
+                        </g>
+                    </g>
+                    <g>
+                        <g>
+                            <path d="M3.2,22.582c11.433,0,22.867,0,34.299,0c2.418,0,2.418-3.75,0-3.75c-11.433,0-22.866,0-34.299,0
+			C0.781,18.832,0.781,22.582,3.2,22.582L3.2,22.582z" />
+                        </g>
+                    </g>
+                    <g>
+                        <g>
+                            <path d="M3.2,34.33c11.433,0,22.866,0,34.3,0c2.418,0,2.418-3.75,0-3.75c-11.434,0-22.867,0-34.3,0
+			C0.782,30.58,0.782,34.33,3.2,34.33L3.2,34.33z" />
+                        </g>
+                    </g>
+                </svg>
+
 
             </div>
+
         </div>
-
-        <nav id="nav">
-            <h1>CREATE <span>MINIMAL</span> BACKGROUNDS</h1>
-        </nav>
-
-        <div>Iconos diseñados por <a href="https://www.flaticon.es/autores/gregor-cresnar" title="Gregor Cresnar">Gregor
-                Cresnar</a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a></div>
     </div>
+
 </body>
 
 </html>

@@ -16,7 +16,7 @@
             font-size: 14px;
             margin: 4px 0;
             padding: 8px;
-            background: $dark-grey;
+            background: $grey;
             border: none;
             outline-color: $primary;
             color: $white;
@@ -34,7 +34,7 @@
         form{
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: space-evenly;
             flex-direction: row;
         }
 

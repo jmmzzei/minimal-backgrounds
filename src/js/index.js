@@ -1,65 +1,50 @@
-import { animationButtons, hideAll, toggleConfig, mapper } from "./helpers";
+import { toggleConfig } from "./helpers";
 import Gradient from "./gradient";
 import Solid from './solid'
-
+import { width, height, quality } from './listeners'
 import '../css/style.scss'
 
 const canvas = document.getElementById('myCanvas')
-
 const gradientOptions = document.getElementById('gradients-options')
-
-const solidBtn = document.getElementById('solid')
-const gradientBtn = document.getElementById('gradient')
 const configToggle = document.getElementById('config-toggle')
 const colorToggle = document.getElementById('color-toggle')
-
-const inputOne = document.getElementById('0')
-const inputTwo = document.getElementById('1')
-
+const inputOne = document.getElementById('inputOne')
+const inputTwo = document.getElementById('inputTwo')
 const addGradient = document.getElementById('add-gradient')
 const removeGradient = document.getElementById('remove-gradient')
-
 const downloadBtn = document.getElementById('btn-download')
-
-// const imgWidth = document.getElementById('img-width')
-// const imgHeight = document.getElementById('img-height')
-// const imgQuality = document.getElementById('img-quality')
 const cPicker = document.getElementById('colorPicker')
-
-const selector = document.getElementById('type-select')
 const solidOptions = document.getElementById('solid-options')
+const selectMode = document.getElementById('select-mode')
+const menu = document.getElementsByClassName('menu')[0]
+const flex = document.getElementsByClassName('flex')
 
 const gradient = new Gradient(canvas)
 const solid = new Solid(canvas, cPicker.value)
 
-
-// Just to test if the listeners imported works even though I don't link the specific js to the html
-// apparently the listener is called when the width/height/quality is required
-import { width, height, quality } from './listeners'
-
-// let width = 1920,
-//     height = 1080,
-//     quality = 0.92;
-
-let extension = 'png'
-
-let mode = 'GRADIENT'
+let extension = 'png',
+    mode = 'GRADIENT';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    selector.addEventListener('change', () => {
-        mode = selector.value
+    selectMode.addEventListener('click', () => {
+        if (document.getElementById('gradiente').style.display == 'block') {
+            document.getElementById('gradiente').style.display = 'none'
+            document.getElementById('solido').style.display = 'block'
+            mode = 'SOLID'
 
-        if (mode == 'SOLID') {
             solidOptions.style.display = 'block'
             gradientOptions.style.display = 'none'
             addGradient.style.display = 'none'
             removeGradient.style.display = 'none'
 
             solid.paint('#f1f1f1')
+        } else {
+            document.getElementById('gradiente').style.display = 'block'
+            document.getElementById('solido').style.display = 'none'
+            mode = 'GRADIENT'
 
-        } else if (mode == 'GRADIENT') {
-            gradientOptions.style.display = 'block'
+            gradientOptions.style.display = 'grid'
             solidOptions.style.display = 'none'
             addGradient.style.display = 'block'
             removeGradient.style.display = 'block'
@@ -67,15 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
             gradient.paint()
         }
     })
-
-    solidBtn.addEventListener('mouseover', () => { animationButtons(solidBtn, 0) }, false)
-    solidBtn.addEventListener('mouseout', () => { animationButtons(solidBtn, 1) }, false)
-    gradientBtn.addEventListener('mouseover', () => { animationButtons(gradientBtn, 0) }, false)
-    gradientBtn.addEventListener('mouseout', () => { animationButtons(gradientBtn, 1) }, false)
-    gradientBtn.addEventListener('click', () => {
-        hideAll(gradientBtn)
-        mode = 'GRADIENT'
-    }, false)
 
     addGradient.addEventListener('click', () => {
         let input = gradient.addInput('#000000')
@@ -86,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     removeGradient.addEventListener('click', () => {
-        let err = gradient.remove(removeGradient)
+        gradient.remove(removeGradient)
     })
 
     colorToggle.addEventListener('click', () => {
@@ -147,4 +123,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     })
 
+    menu.addEventListener('click', ()=>{
+        for (let i = 0; i < flex.length; i++) {    
+            if (flex[i].style.display == 'block') {
+                flex[i].style.display = 'none'
+            } else {
+                flex[i].style.display = 'block'
+            }
+        }
+    })
 })
+

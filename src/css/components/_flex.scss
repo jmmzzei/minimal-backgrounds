@@ -1,4 +1,5 @@
 @import "./download-svg";
+@import "./menu";
 
 .flex{
     display: flex;
@@ -11,43 +12,56 @@
     border-radius: 14px;
     background: $light-gradient;
 
-
-    a,p{
+    a, p, #select-mode{
         cursor: pointer;
         padding: 20px 30px;
         margin: 0;
         background: $white;
-        border-radius: 14px 14px;
+        border-radius: 14px;
         font-weight: 800;
         box-shadow: 0 0 0.6em #afafaf90;
         transition: 0.3s;
         color: $grey;
+        width: 100%;
+        text-align: center;
+        font-size: 1.4rem;
     }
 
-    a:hover{
-        // background: $primary;
-        box-shadow: 10px 10px 1em #80808059;
-        transition: 0.5s;
+    #select-mode{
+        padding: 20px;
+    }
+
+    #btn-download{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 15px;
+    }
+
+    #gradiente,
+    #solido{
+        cursor: pointer;
+        width: 150px;
+        text-align: center;
     }
 
     a:active{
-        background: #000;
+        background: $black;
     }
 
     a:hover > svg path {
-        // fill: $white;
         opacity: 0.4;
         transition: 0.5s;
-        
     }
 
-    p:hover{
-        // background: $black;
+    #select-mode:hover,
+    p:hover,
+    a:hover{
         color: $light-grey;
         box-shadow: 10px 10px 1em #80808059;
         transition: 0.5s;
     }
-
 
     select{
         font-weight: 800;

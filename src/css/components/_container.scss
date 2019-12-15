@@ -1,3 +1,5 @@
+@import "../components/flex";
+
 .container{
     letter-spacing: 4px;
     font-weight: 500;
@@ -7,8 +9,8 @@
     flex-direction: row;
     align-items: flex-end;
     justify-content: space-between;
-    font-size: 22px;
-    height: 100%;
+    font-size: 18px;
+    height: 95%;
 
     a{
         color: $primary;
