@@ -8,8 +8,8 @@ const canvas = document.getElementById('myCanvas')
 const gradientOptions = document.getElementById('gradients-options')
 const configToggle = document.getElementById('config-toggle')
 const colorToggle = document.getElementById('color-toggle')
-const inputOne = document.getElementById('inputOne')
-const inputTwo = document.getElementById('inputTwo')
+const inputOne = document.getElementById('0')
+const inputTwo = document.getElementById('1')
 const addGradient = document.getElementById('add-gradient')
 const removeGradient = document.getElementById('remove-gradient')
 const downloadBtn = document.getElementById('btn-download')
@@ -20,7 +20,7 @@ const menu = document.getElementsByClassName('menu')[0]
 const flex = document.getElementsByClassName('flex')
 
 const gradient = new Gradient(canvas)
-const solid = new Solid(canvas, cPicker.value)
+const solid = new Solid(canvas)
 
 let extension = 'png',
     mode = 'GRADIENT';
@@ -28,9 +28,9 @@ let extension = 'png',
 document.addEventListener('DOMContentLoaded', () => {
 
     selectMode.addEventListener('click', () => {
-        if (document.getElementById('gradiente').style.display == 'block') {
-            document.getElementById('gradiente').style.display = 'none'
-            document.getElementById('solido').style.display = 'block'
+        if (document.getElementById('gradientSelector').style.display == 'block') {
+            document.getElementById('gradientSelector').style.display = 'none'
+            document.getElementById('solidSelector').style.display = 'block'
             mode = 'SOLID'
 
             solidOptions.style.display = 'block'
@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             solid.paint('#f1f1f1')
         } else {
-            document.getElementById('gradiente').style.display = 'block'
-            document.getElementById('solido').style.display = 'none'
+            document.getElementById('gradientSelector').style.display = 'block'
+            document.getElementById('solidSelector').style.display = 'none'
             mode = 'GRADIENT'
 
             gradientOptions.style.display = 'grid'
@@ -49,14 +49,14 @@ document.addEventListener('DOMContentLoaded', () => {
             addGradient.style.display = 'block'
             removeGradient.style.display = 'block'
 
-            gradient.paint()
+            gradient.rePaint()
         }
     })
 
     addGradient.addEventListener('click', () => {
-        let input = gradient.addInput('#000000')
+        let input = gradient.addInput('#ffffff')
         input.addEventListener('input', () => {
-            gradient.add(input)
+            gradient.paint(input)
         })
         gradientOptions.append(input)
     })
@@ -78,11 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     inputOne.addEventListener('input', () => {
-        gradient.add(inputOne)
+        gradient.paint(inputOne)
     })
 
     inputOne.addEventListener('focus', () => {
-        gradient.setCanvas(inputOne)
+        gradient.rePaint()
     })
 
     inputTwo.addEventListener('click', () => {
@@ -90,11 +90,11 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     inputTwo.addEventListener('input', () => {
-        gradient.add(inputTwo)
+        gradient.paint(inputTwo)
     })
 
     inputTwo.addEventListener('focus', () => {
-        gradient.setCanvas(inputTwo)
+        gradient.rePaint()
     })
 
     cPicker.addEventListener('input', () => {
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         canvas.setAttribute('height', height)
 
         if (mode == 'GRADIENT') {
-            gradient.paint()
+            gradient.rePaint()
         } else if (mode == 'SOLID') {
             solid.paint(cPicker.value)
         }

@@ -1,6 +1,5 @@
 export function toggleConfig(e) {
-    const navStyle = document.getElementsByClassName('nav-bottom').style
-    const configPanelStyle = e.previousSibling.previousSibling.style
+    const configPanelStyle = e.previousSibling.style;
     configPanelStyle.display = configPanelStyle.display == 'none' ? 'block' : 'none'
 }
 

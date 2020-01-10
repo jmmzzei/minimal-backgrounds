@@ -11,7 +11,7 @@
 
 <body>
     <nav id="nav">
-        <h1><span>MINIMAL</span> BACKGROUNDS</h1>
+        <h1><span>MINIMAL</span> BACKGROUND</h1>
     </nav>
 
     <canvas id="myCanvas">
@@ -22,18 +22,18 @@
             <div class="flex">
 
                 <div id="select-mode">
-                    <div id="gradiente" style="display: block; cursor: pointer;">GRADIENT</div>
-                    <div id="solido" style="display: none;">SOLID</div>
+                    <div id="gradientSelector" style="display: block">GRADIENT</div>
+                    <div id="solidSelector" style="display: none;">SOLID</div>
                 </div>
-
             </div>
 
             <div class="flex">
                 <div class="colors-panel" style="display: none;">
 
-                    <div id="gradients-options" style="display: grid;">
-                        <input type="color" id="inputOne" value="#ffffff">
-                        <input type="color" id="inputTwo" value="#ffffff">
+                    <div id="gradients-options">
+                        <input type="color" id="0" value="#ffffff">
+                        <input type="color" id="1" 
+                        value="#ffffff">
                     </div>
                     <button id="add-gradient">+</button>
                     <button id="remove-gradient">-</button>
@@ -46,6 +46,7 @@
                 <p id="color-toggle">COLORS</p>
             </div>
 
+            
             <div class="flex">
                 <div class="config-panel" style="display: none;">
                     <div class="config-grid">

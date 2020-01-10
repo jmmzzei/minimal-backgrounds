@@ -1,7 +1,6 @@
 export default class Solid{
-    constructor(canvas, value){
+    constructor(canvas){
         this.canvas = canvas
-        this.pickerValue = value
     }
 
     paint(value){
@@ -9,5 +8,4 @@ export default class Solid{
         ctx.fillStyle = value
         ctx.fillRect(0, 0, this.canvas.width, this.canvas.height)        
     }
-
 }

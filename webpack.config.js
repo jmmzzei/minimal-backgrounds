@@ -7,17 +7,16 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin'); 
 
-
 module.exports = {
     entry: path.resolve(__dirname,'./src/js/index.js'),
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, './dist')
     },
-    // optimization: {
-    //   minimize: true,
-    //   minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
-    // },
+    optimization: {
+      minimize: true,
+      minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    },
     module : {
         rules: [
           {
@@ -37,15 +36,15 @@ module.exports = {
       new HtmlWebpackPlugin({
           filename:'index.html',
           template: './src/index.html',
-          hash: false,
+          hash: true,
             minify: {
               //all to true
-              collapseWhitespace: false,
+              collapseWhitespace: true,
               removeComments: true,
-              removeRedundantAttributes: false,
+              removeRedundantAttributes: true,
               removeScriptTypeAttributes: true,
-              removeStyleLinkTypeAttributes: false,
-              useShortDoctype: false
+              removeStyleLinkTypeAttributes: true,
+              useShortDoctype: true
             }
         }),
         new MiniCssExtractPlugin({

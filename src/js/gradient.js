@@ -9,7 +9,7 @@ export default class Gradient {
         this.arr = ['#ffffff', '#ffffff']
     }
 
-    paint(){
+    rePaint(){      
         let grd = this.ctx.createLinearGradient(0, 0, this.canvas.width, 0)
         for (let i = 0; i < this.arr.length; i++) {
             let output = mapper(this.arr.length - 1, i)
@@ -23,7 +23,7 @@ export default class Gradient {
         this.selected = e.id
     }
 
-    add(e) {
+    paint(e) {
         this.arr[e.id] = e.value
 
         var grd = this.ctx.createLinearGradient(0, 0, this.canvas.width, 0);
@@ -41,13 +41,12 @@ export default class Gradient {
     }
 
     addInput(color) {
-
         const input = document.createElement('input');
         input.type = 'color';
         input.id = this.arr.length;
         input.setAttribute('value', color)
         this.arr.push(color);
-        this.paint()
+        this.rePaint()
         return input
     }
 
@@ -56,7 +55,7 @@ export default class Gradient {
             let arrayNodes = Array.from(document.getElementById('gradients-options').childNodes)
             arrayNodes.reverse().find(e => e.id).remove()
             this.arr.pop()
-            this.paint()
+            this.rePaint()
         } 
     }
 
