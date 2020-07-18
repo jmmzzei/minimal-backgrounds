@@ -4,6 +4,5 @@ export function toggleConfig(e) {
 }
 
 export function mapper(arrlength, input) {
-    let output = 0 + ((1 - 0) / (arrlength - 0)) * (input - 0)
-    return output
+    return 0 + ((1 - 0) / (arrlength - 0)) * (input - 0)
 }
