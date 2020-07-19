@@ -1,10 +1,14 @@
-const solidOptions = document.getElementById('solid-options')
-const addGradient = document.getElementById('add-gradient')
-const removeGradient = document.getElementById('remove-gradient')
-const gradientOptions = document.getElementById('gradients-options')
-const gradientSelector = document.getElementById('gradientSelector')
-const solidSelector = document.getElementById('solidSelector')
 import {gradient, solid} from './index'
+import {elements} from './elements'
+
+const {
+  solidOptions,
+  addGradient,
+  removeGradient,
+  gradientSelector,
+  gradientOptions,
+  solidSelector,
+} = elements
 
 export default class Panel {
   constructor() {
