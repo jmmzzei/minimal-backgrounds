@@ -4,3 +4,4 @@ Simple and straightforward web app for create _and download_ solid and gradient 
 
 Made with Vanilla JS, Webpack and Sass.
 
+https://minimal-background.jmmazzei.com/
